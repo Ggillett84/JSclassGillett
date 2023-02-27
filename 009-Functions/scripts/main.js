@@ -21,25 +21,18 @@ console.log(`This result was returned from the function ${result}`)
 
 
 
-//function biWeek (a, b, c) {
-//let result = a * b * c
-//return result
-//}
-
-//let returnValue = biWeek(20.19, 8, 10)
-//console.log (`Bi-wekkly Gross income ${returnValue}`)
+//converted functions
+biWeekly = (a, b, c) => a * b * c
+console.log("Bi-weekly income")
+console.log (biWeekly (20.19, 8, 10))
 
 
-//converted function
 monthly = (a, b) => a * b
-
+console.log("Monthly Income")
 console.log (monthly (1615.2, 2))
 
 
-//function mBills (a, b, c, d, e){
-//    let result = a + b + c + d
-//   return result
-//}
+mBills = (a, b, c, d, e) => a + b + c + d
 
-//let returnSum = mBills (1200, 100, 110, 280, 120,)
-//console.log (`My monthly bills ${returnSum}`)
+console.log("Monthly bills")
+console.log (mBills (1200, 100, 110, 280, 120,))
