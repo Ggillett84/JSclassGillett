@@ -16,10 +16,6 @@ const trackMPGCost = (miles, gallons, price = 3.79) => {
    myArr.push(MPG, tripCost)
 }
 
-const calculateAve = () => {
-    const avgMPG = (myArr[0] + myArr[2]) /2
-    updateDOM(avgMPG)
-}
 
 trackMPGCost (300, 10, 5.40)
 trackMPGCost (320, 12, 5)

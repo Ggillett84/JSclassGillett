@@ -19,13 +19,15 @@ const trackMPGCost = (miles, gallons, price = 3.79) => {
 const calculateAvgMPG = () => {
     //const avgMPG = (myArr[0] + myArr[2]) /2
     //updateDOM(`Averager Miles per gallon is ${avgMPG}`)
-    for(let i = 0; i < 10; i++){
-        let totalMPG = 0    
-        totalMPG = totalMPG + myMPG (i)
+    let totalMPG = 0    
+    for(let i = 0; i < myMPG.length; i++) {
+        totalMPG = totalMPG + myMPG [i]
     }
+    let avgMPG = totalMPG / myMPG.length
+    updateDOM(`Average MPG is ${avgMPG}`)
 }
 
-//calculate average we need to drtermine total occutances and divide that number of occurrances
+//calculate average we need to drtermine total occurances and divide that number of occurances
 
 trackMPGCost (360, 15, 5.40)
 trackMPGCost (320, 12, 5)
