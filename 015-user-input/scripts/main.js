@@ -13,7 +13,7 @@ const updateDOM = (input) => {
 const trackMPGandCost = (miles, gallons, price = 3.79) => {
    const MPG = Math.round(miles/gallons)
    const tripCost = Math.round (gallons * price)
-   updateDOM (`miles per gallon ${MPG} and trip cost is ${tripCost}`)
+   updateDOM (`Miles per gallon is ${MPG} and trip cost is ${tripCost}`)
    MY_MPG.push(MPG)
    MY_TRIP_COST.push(tripCost)
 }
@@ -37,7 +37,11 @@ const calculateAvg = () => {
 }
 
 FORM.addEventListener('submit', (e) => {
-    console.log (e)
+    e.preventDefault ()
+    const miles = parseInt (e.target.miles.value)
+    const gallons = parseInt (e.target.gallons.value)
+    const price = parseInt (e.target.price.value)
+    trackMPGandCost(miles, gallons, price)
 })
 
 // trackMPGandCost (360, 15, 5.40)
