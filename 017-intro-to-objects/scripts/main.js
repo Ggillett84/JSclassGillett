@@ -13,7 +13,8 @@ const myObj = {
         OS: 'android'
     },
     myGreeting: function (person) {
-        return `what is UP ${person}`
+        
+        return `${this.name} who loves ${this.hobbies[1]} says what is UP ${person}`
     }
 }
 
