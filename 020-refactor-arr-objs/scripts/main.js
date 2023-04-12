@@ -11,13 +11,18 @@ const updateDOM = (input, id) => {
     divEl.appendChild(p)
 }
 
-const trackMPGandCost =  (obj) => {
-   const MPG = Math.round(obj.miles/obj.gallons)
-   const tripCost = Math.round (obj.gallons * obj.price)
+const trackMPGandCost =  (miles, gallons, price) => {
+   const MPG = Math.round(miles/gallons)
+   const tripCost = Math.round (gallons * price)
    updateDOM (`Miles per gallon is ${MPG} and trip cost is ${tripCost}`, '#output')
-   obj.MPG = MPG
-   obj.tripCost = tripCost
-   return obj
+   return obj = {
+    MPG: MPG,
+    tripCost: tripCost,
+    mles: miles,
+    gallons: gallons,
+    price: price
+
+   } 
 }
 
 const calculateAvg = () => {
@@ -28,40 +33,44 @@ const calculateAvg = () => {
         sumTripCost += obj.tripCost
     })
 
-    let avgMPG = Math.round (sumMPG/MY_DATA.length)
-    let avgTripCost = Math.round (sumTripcost/MY_DATA.length)
+    const avgMPG = Math.round (sumMPG/MY_DATA.length)
+    const avgTripCost = Math.round (sumTripcost/MY_DATA.length)
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg')
     updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg')
 }
 
+const isFormValid = (miles, gallons, price) => {
+  const errMsg = []
+  if (miles === 0 || gallons === 0 || price === 0) {
+    errMsg.push("Make sure you input value greater than 0!!, Try Again")
+  }
+  if (price > 1000) {
+    errMsg.push("Really? I think this is an error! Try Again")
+  }
+
+  if (errMsg.length > 0) {
+    ERR.textContent = errMsg
+    return false 
+  } else{
+    return true
+  }
+};
 
 FORM.addEventListener('submit', (e) => {
     e.preventDefault ()
-    const errMsg = []
     const miles = parseInt (e.target.miles.value)
     const gallons = parseInt (e.target.gallons.value)
     const price = parseInt (e.target.price.value)
-    if(miles === 0 || gallons === 0 || price === 0) {
-        errMsg.push('Make sure you input value greater than 0!!, Try Again') 
-    } 
-    if (price > 1000) {
-        errMsg.push ('Really? I think this is an error! Try Again')
-    }
+    const isValid = isFormValid (miles, gallons, price)
+    if (isValid) {
 
-    if(errMsg.length > 0) {
-        ERR.textContent = errMsg
-    } else {
-        const newDataObj = {
-            miles: miles,
-            gallons: gallons,
-            price: price
-        }
         ERR.textContent = ''
         AVG_OUTPUT.textContent = ''
-        const updateDataObj = trackMPGandCost (newDataObj)
-        MY_DATA.push (updateDataObj)
+        const dataObj = trackMPGandCost (miles, gallons, price)
+        MY_DATA.push (dataObj)
         calculateAvg ()
     }
+
     FORM.reset ()
 
 })
