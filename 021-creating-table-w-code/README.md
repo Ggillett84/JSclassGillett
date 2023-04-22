@@ -31,3 +31,7 @@ I think setting the key like key.mpg in the order i want it to be in the order w
 # how you think we can fix the rendering issues
 
 I am not sure how to fix it, you said it would only take one code and I was going to look at the code to see if there was anything to erase, so I was way off
+
+# fianl
+
+I am not getting it on my own. I understand while you are explaining it, but then I'm like huh???? loke when you do function functName () and you put like (td) in it... why exactly are you doing that? and what is the diffrence from function and const? I am going to keep trying. 

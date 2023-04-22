@@ -87,7 +87,19 @@ function renderTableHeadings (){
     return tbl
   }
 
+  function renderEditDelBtn (){
+    const td = document.createElement ('td')
+    const editBtn = document.createElement ('button')
+    editBtn.textContent = 'edit'
+    const delBtn = document.createElement ('button')
+    delBtn.textContent = 'delete'
+      td.appendChild (editBtn)
+      td.appendChild (delBtn)
+      return td
+  }
+
     function renderTable (){
+      TBL_OUTPUT.innerHTML = ''
       const tbl = renderTableHeadings()
       TBL_OUTPUT.appendChild(tbl)
       MY_DATA.forEach (function(obj) {
@@ -97,15 +109,14 @@ function renderTableHeadings (){
         td.textContent = obj[key]
         tr.appendChild (td)
     }
-    const btnTd = document.createElement ('td')
-    const editBtn = document.createElement ('button')
-    editBtn.textContent = 'edit'
-    const delBtn = document.createElement ('button')
-    delBtn.textContent = 'delete'
-      btnTd.appendChild (editBtn)
-      btnTd.appendChild (delBtn)
-      tr.appendChild (btnTd)
-      
+    const btnTd = renderEditDelBtn ()
+    // const editBtn = document.createElement ('button')
+    // editBtn.textContent = 'edit'
+    // const delBtn = document.createElement ('button')
+    // delBtn.textContent = 'delete'
+    //   btnTd.appendChild (editBtn)
+    //   btnTd.appendChild (delBtn)
+    tr.appendChild (btnTd)
     tbl.appendChild (tr)
   
     })
