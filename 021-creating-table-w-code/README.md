@@ -24,6 +24,10 @@ also the folder 020 did not come with the comments telling what the code is doin
 
     I think it will look something like this.....????  --\ 00 /--
 
-# how to set is to match our heading 
+# how to set it to match our heading 
 
-I think setting the key like key.mpg in the order i want it to be
+I think setting the key like key.mpg in the order i want it to be in the order we want it
+
+# how you think we can fix the rendering issues
+
+I am not sure how to fix it, you said it would only take one code and I was going to look at the code to see if there was anything to erase, so I was way off
