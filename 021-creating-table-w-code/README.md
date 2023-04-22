@@ -23,3 +23,7 @@ also the folder 020 did not come with the comments telling what the code is doin
     TBL_OUTPUT.appendChild(tbl) -->
 
     I think it will look something like this.....????  --\ 00 /--
+
+# how to set is to match our heading 
+
+I think setting the key like key.mpg in the order i want it to be

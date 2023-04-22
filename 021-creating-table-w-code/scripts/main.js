@@ -14,7 +14,7 @@ const MY_DATA = []
 /* updateDOM function takes in input (string value) and id (to determine DOM location to update) 
 and creates and updates DOM elements*/
 
-const updateDOM = (input, id) => {
+function updateDOM (input, id) {
     const divEl = document.querySelector(id)
     const p = document.createElement('p')
     p.textContent = input
@@ -24,23 +24,24 @@ const updateDOM = (input, id) => {
 /* trackMPGandCost function takes in miles, gallons and price and calculates MPG and tripCost and 
 returns an object */
 
-const trackMPGandCost = (miles, gallons, price) => {
+function trackMPGandCost (miles, gallons, price) {
     const MPG  = Math.round(miles/gallons)
     const tripCost = Math.round(gallons * price)
     updateDOM(`Miles per gallon  is ${MPG} and trip cost is ${tripCost}`, '#output')
     return {
-        MPG: MPG, 
-        tripCost: tripCost,
+        
         miles: miles,
         gallons: gallons,
-        price: price
+        price: price,
+        MPG: MPG,
+        tripCost: tripCost
     }
 }
 
 /* calculateAvg function loops over the MY_DATA to determine average MPG and Trip Cost
 */
 
-const calculateAvg = () => {
+function calculateAvg () {
     const numberOfObj = MY_DATA.length
     let sumMPG  = 0
     let sumTripCost = 0  
@@ -57,7 +58,7 @@ const calculateAvg = () => {
 /* isFormValid takes in miles, gallons and price and does simple validation and 
 returns boolean or truthy value back to eventlisteners */
 
-const isFormValid = (miles, gallons, price) => {
+function isFormValid  (miles, gallons, price) {
     const errMsg = []
     if (miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Make sure your input value greater than 0!!, Try Again')
@@ -85,6 +86,16 @@ function renderTable(){
     console.log (tr)
     tbl.appendChild (tr)
     TBL_OUTPUT.appendChild(tbl)
+    MY_DATA.forEach (function (obj) {
+    const tr = document.createElement('tr')
+    for (key in obj){
+      let td = document.createElement('td')
+        td.textContent = obj[key]
+        tr.appendChild (td)
+    }
+    tbl.appendChild (tr)
+    })
+
 }
 
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 
