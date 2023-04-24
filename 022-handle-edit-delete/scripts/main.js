@@ -109,14 +109,16 @@ function renderEditDelBtn(index) {
   })
   delBtn.addEventListener ('click', function (e){
     MY_DATA.splice (index, 1)
-  })
+    renderTable()
+      })
   td.appendChild(editBtn);
   td.appendChild(delBtn);
   return td;
 }
 
 function renderTable() {
-  TBL_OUTPUT.innerHTML = "";
+  TBL_OUTPUT.innerHTML = '';
+  if (MY_DATA.length !== 0) {
   const tbl = renderTableHeadings();
   TBL_OUTPUT.appendChild(tbl);
   MY_DATA.forEach(function (obj, index) {
@@ -130,6 +132,8 @@ function renderTable() {
     tr.appendChild(btnTd);
     tbl.appendChild(tr);
   });
+  }
+
 }
 
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 
