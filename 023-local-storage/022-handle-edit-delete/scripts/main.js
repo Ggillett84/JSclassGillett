@@ -19,10 +19,13 @@ function getTripData (){
   
 }
 
+function saveTripData (){
+  localStorage.setItem('tripdata', JSON.stringify (MY_DATA))
+}
+
 const MY_DATA = getTripData ()
 renderTable ()
 
-localStorage.setItem('tripdata', JSON.stringify (MY_DATA))
 
 /* updateDOM function takes in input (string value) and id (to determine DOM location to update) 
 and creates and updates DOM elements*/
@@ -123,6 +126,7 @@ function renderEditDelBtn(index) {
   })
   delBtn.addEventListener ('click', function (e){
     MY_DATA.splice (index, 1)
+    saveTripData ()
     renderTable()
       })
   td.appendChild(editBtn);
@@ -164,6 +168,7 @@ FORM.addEventListener("submit", (e) => {
     AVG_OUTPUT.textContent = "";
     const dataObj = trackMPGandCost(miles, gallons, price);
     MY_DATA.push(dataObj);
+    saveTripData();
     renderTable();
     calculateAvg();
   }
