@@ -2,25 +2,19 @@ import { saveTripData } from "./storage.js";
 const FORM = document.getElementById("form-input");
 const TBL_OUTPUT = document.getElementById("table-out");
 
+
 function renderTableHeadings() {
-    const tbl = document.createElement("table");
-    const headings = [
-      "Miles Driven:",
-      "Gallons Used:",
-      "Price Paid:",
-      "Trip MPG",
-      "Trip Cost",
-      "Edit/Delete",
-    ];
-    const tr = document.createElement("tr");
+    const tbl = document.createElement('table');
+    const headings = ['Miles Driven:', 'Gallons Used:', 'Price Paid:', 'Trip MPG', 'Trip Cost', 'Edit/Delete'];
+    const tr = document.createElement('tr');
     headings.forEach(function (heading) {
-      let th = document.createElement("th");
-      th.textContent = heading;
-      tr.appendChild(th);
+        let th = document.createElement('th');
+        th.textContent = heading;
+        tr.appendChild(th);
     });
     tbl.appendChild(tr);
     return tbl;
-  }
+}
   
   function renderEditDelBtn(MY_DATA, index) {
     const td = document.createElement("td");
