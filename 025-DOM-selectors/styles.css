@@ -20,3 +20,8 @@
     border: 1px solid blue;
     padding: 8px;
   }
+
+  .tbl-btn {
+    border-radius: 5px;
+    background-color: aqua;
+  }

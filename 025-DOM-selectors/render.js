@@ -17,24 +17,29 @@ function renderTableHeadings() {
 }
   
   function renderEditDelBtn(MY_DATA, index) {
-    const td = document.createElement("td");
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "edit";
-    const delBtn = document.createElement("button");
-    delBtn.textContent = "delete";
+    const td = document.createElement('td');
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'edit';
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'delete';
     editBtn.addEventListener ('click', function (e){
       FORM[0].value = MY_DATA [index].miles
       FORM[1].value = MY_DATA [index].gallons
       FORM[2].value = MY_DATA [index].price
       MY_DATA.splice (index, 1)
+      const disable_btns = document.querySelectorAll ('.tbl-btn')
+      disable_btns.forEach (function (btn){
+        btn.setAttribute ('disable', true)
+      })
     })
     delBtn.addEventListener ('click', function (e){
       MY_DATA.splice (index, 1)
       saveTripData (MY_DATA)
       renderTable(MY_DATA)
-      const button = document.querySelector("Button"); 
-      button.setAttribute("disabled", "disabled");
         })
+    editBtn.classList.add ('tbl-btn')
+    delBtn.classList.add ('tbl-btn')
+
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
