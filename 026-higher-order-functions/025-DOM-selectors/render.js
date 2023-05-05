@@ -29,7 +29,7 @@ function renderTableHeadings() {
       MY_DATA.splice (index, 1)
       const disable_btns = document.querySelectorAll ('.tbl-btn')
       disable_btns.forEach (function (btn){
-        btn.setAttribute ('disable', true)
+        btn.setAttribute ('disabled', true)
       })
     })
     delBtn.addEventListener ('click', function (e){
