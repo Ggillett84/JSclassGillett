@@ -5,7 +5,7 @@ import { isFormValid, calculateAvg, trackMPGandCost } from "../calculate.js";
 
 const FORM = document.getElementById("form-input");
 const ERR = document.getElementById("err");
-const AVG_OUTPUT = document.getElementById("output-avg");
+
 
 /* MY_DATA is global array that will be updated by the user input with objects from form input values 
 and calculate data */
@@ -24,7 +24,7 @@ FORM.addEventListener("submit", (e) => {
   const isValid = isFormValid(miles, gallons, price);
   if (isValid) {
     ERR.textContent = "";
-    AVG_OUTPUT.textContent = "";
+    // AVG_OUTPUT.textContent = "";
     const dataObj = trackMPGandCost(miles, gallons, price);
     MY_DATA.push(dataObj);
     saveTripData(MY_DATA);

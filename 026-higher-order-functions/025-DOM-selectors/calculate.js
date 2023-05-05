@@ -1,4 +1,5 @@
 const ERR = document.getElementById("err");
+const AVG_OUTPUT = document.getElementById("output-avg");
 
 /* updateDOM function takes in input (string value) and id (to determine DOM location to update) 
 and creates and updates DOM elements*/
@@ -16,10 +17,10 @@ returns an object */
 function trackMPGandCost(miles, gallons, price) {
     const MPG = Number((miles / gallons).toFixed(2));
     const tripCost = Number((gallons * price).toFixed(2));
-    updateDOM(
-      `Miles per gallon  is ${MPG} and trip cost is ${tripCost}`,
-      "#output"
-    );
+    // updateDOM(
+    //   `Miles per gallon  is ${MPG} and trip cost is ${tripCost}`,
+    //   "#output"
+    // );
     return {
       miles: miles,
       gallons: gallons,
@@ -33,6 +34,7 @@ function trackMPGandCost(miles, gallons, price) {
    */
   
   function calculateAvg(MY_DATA) {
+    AVG_OUTPUT.innerHTML =''
     const numberOfObj = MY_DATA.length;
     // let sumMPG = 0;
     // let sumTripCost = 0;
@@ -48,8 +50,8 @@ function trackMPGandCost(miles, gallons, price) {
     },0)
     const avgMPG = Number((sums.MPG / numberOfObj).toFixed(2));
     const avgTripCost = Number((sums.TripCost / numberOfObj).toFixed(2));
-    updateDOM(`Average MPG is ${avgMPG}`, "#output-avg");
-    updateDOM(`Average Trip Cost is ${avgTripCost}`, "#output-avg");
+    updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
+    updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg');
   }
 
 /* isFormValid takes in miles, gallons and price and does simple validation and 
