@@ -46,8 +46,8 @@ function trackMPGandCost(miles, gallons, price) {
         tripCost: sum.tripCost + obj.tripCost,
       }    
     },0)
-    const avgMPG = Number((sumMPG / numberOfObj).toFixed(2));
-    const avgTripCost = Number((sumTripCost / numberOfObj).toFixed(2));
+    const avgMPG = Number((sums.MPG / numberOfObj).toFixed(2));
+    const avgTripCost = Number((sums.TripCost / numberOfObj).toFixed(2));
     updateDOM(`Average MPG is ${avgMPG}`, "#output-avg");
     updateDOM(`Average Trip Cost is ${avgTripCost}`, "#output-avg");
   }
