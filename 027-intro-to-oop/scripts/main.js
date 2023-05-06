@@ -1,25 +1,48 @@
 class Person {
     constructor(firstName, lastName, address){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
+        this._firstName = firstName;
+        this._lastName = lastName;
+        this._address = address;
     }
-    showStatus (){
-        console.log (` ${this.firstName} lves at ${this.address}`)
+
+    get firstName (){
+        return this._firstName;
+    }
+    set firstName (newFirstName){
+        this.firstName = newFirstName;
+    }
+    get lastName (){
+        return this._lastName;
+    }
+    set lastName (newLastName){
+        this.lastName = newLastName;
+    }
+    get address (){
+        return this._address;
+    }
+    set address (newAddressName){
+        this.address = newAddressName;
     }
 }
+//     showStatus (){
+//         console.log (` ${this.getFirstName ()} lves at ${this.address}`)
+//     }
+// }
 
-class Student extends Person{
-    constructor (firstName, lastName, address, classList){
-    super (firstName, lastName, address)
-    this.classList = classList
-}
-showStatus (){
-    console.log (` ${this.firstName} lves at ${this.address}, and is taking ${this.classList}`)
-}
-}
+// class Student extends Person{
+//     constructor (firstName, lastName, address, classList){
+//     super (firstName, lastName, address)
+//     this.classList = classList
+// }
+// showStatus (){
+//     console.log (` ${this.firstName} lves at ${this.address}, and is taking ${this.classList}`)
+// }
+// }
 
-const gloria = new Student ("gloria", "Gillett", "123 Mountain way", ["Eng 1A", "CIT93"])
-gloria.showStatus ()
+const person = new Person ("gloria", "Gillett", "123 Mountain way", ["Eng 1A", "CIT93"]);
+console.log (person.newFirstName)
+person.firstName = 'gloria';
 const kelly = new Person ("kelly", "Gillett", "123 Mountain Way")
-kelly.showStatus ()
+
+
+console.log (gloria.getFirstName())
