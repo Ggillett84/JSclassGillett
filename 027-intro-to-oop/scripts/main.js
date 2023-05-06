@@ -4,45 +4,49 @@ class Person {
         this._lastName = lastName;
         this._address = address;
     }
-
-    get firstName (){
-        return this._firstName;
+    getFirstName (){
+        return `${this._firstName}`
     }
-    set firstName (newFirstName){
-        this.firstName = newFirstName;
+    setFirstName (newFirstName){
+        this.firstName = newFirstName
     }
-    get lastName (){
-        return this._lastName;
+    getLastName (){
+        return `${this._lastName}`
     }
-    set lastName (newLastName){
-        this.lastName = newLastName;
+    setLastName (newLastName){
+        this.lirstName = newLastName
     }
-    get address (){
-        return this._address;
+    getAddress (){
+        return `${this._address}`
     }
-    set address (newAddressName){
-        this.address = newAddressName;
+    setAddress (newAddress){
+        this.address = newAddress
     }
+    showStatus (){
+        console.log (` ${this.getFirstName ()} lves at ${this.getAddress()}`)
+    }
+    
 }
-//     showStatus (){
-//         console.log (` ${this.getFirstName ()} lves at ${this.address}`)
-//     }
-// }
 
-// class Student extends Person{
-//     constructor (firstName, lastName, address, classList){
-//     super (firstName, lastName, address)
-//     this.classList = classList
-// }
-// showStatus (){
-//     console.log (` ${this.firstName} lves at ${this.address}, and is taking ${this.classList}`)
-// }
-// }
+class Student extends Person{
+    constructor (firstName, lastName, address, classList){
+    super (firstName, lastName, address)
+    this._classList = classList
+}
+getClassList (){
+    return `${this._classList}`
+}
+setClassList (newClassList){
+    this._classList = newClassList
+}
 
-const person = new Person ("gloria", "Gillett", "123 Mountain way", ["Eng 1A", "CIT93"]);
-console.log (person.newFirstName)
-person.firstName = 'gloria';
+showStatus (){
+    console.log (` ${this.getFirstName()} lves at ${this.getAddress()}, and is taking ${this.getClassList()}`)
+}
+}
+
+const gloria = new Student ("gloria", "Gillett", "123 Mountain way", ["Eng 1A", "CIT93"])
+gloria.showStatus ()
 const kelly = new Person ("kelly", "Gillett", "123 Mountain Way")
+kelly.showStatus ()
 
-
-console.log (gloria.getFirstName())
