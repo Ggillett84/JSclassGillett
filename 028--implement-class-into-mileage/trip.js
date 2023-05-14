@@ -1,10 +1,10 @@
 class Trip {
   constructor(miles, gallons, price) {
-    this._miles = miles;
-    this._gallons = gallons;
-    this._price = price;
-    this._MPG = Number((miles / gallons).toFixed(2));
-    this._tripCost = Number((gallons * price).toFixed(2));
+    this.miles = miles;
+    this.gallons = gallons;
+    this.price = price;
+    this.MPG = Number((miles / gallons).toFixed(2));
+    this.tripCost = Number((gallons * price).toFixed(2));
   }
 }
 
