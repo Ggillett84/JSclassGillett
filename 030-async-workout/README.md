@@ -1,0 +1,3 @@
+#  what are the call backs for each callback
+
+I actuall have no idea and was going to ask why they were all the same and if it would confuse the code or show an error because it has already been declared....

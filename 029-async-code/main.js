@@ -30,20 +30,23 @@ function callback (){
     console.log ('Clicked')
 }
 
-// function thing1 (callback){
-//     callback()
-// }
-// function thing2 (callback){
-//     callback()
-// }
-// function thing3 (callback){
-//     callback()
-// }
+function thing1 (callback){
+   //call the shop
+    callback()
+}
+function thing2 (callback){
+   // order the pizza
+    callback()
+}
+function thing3 (callback){
+    //eat the pizza
+    callback()
+}
 
-// thing1(() => {
-//     thing2(() => {
-//         thing3 (() => {
+thing1(() => {
+    thing2(() => {
+        thing3 (() => {
 
-//         })
-//     })
-// })
+        })
+    })
+})
