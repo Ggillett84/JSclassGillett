@@ -3,21 +3,24 @@ const output = document.getElementById('output')
 
 
 function updateDOM(message, el) {
-    return new Promise (resolve =>{
     const newEl = document.createElement(el)
     newEl.textContent = message
     output.appendChild(newEl)
-    resolve()
-    })
 }
 
 function startWorkout (type, reps, time, fn) {
-    return new Promise (resolve => {
     fn(`Start ${type} Goal reps is ${reps}`, 'p')
-    setTimeout(()=> {
-        fn(`Stop ${type}`, 'h1')
-        resolve()
-    }, time * 1000)
+    return new Promise (function(resolve, reject){
+        setTimeout(()=> {
+            // resolve(fn(`Stop ${type}`, 'h1'))
+            reject(fn(`Something bad happened!`, 'h1'))
+        }, time * 1000) 
+    })
+
+}
+
+function onError(err){
+    console.log (`ERROR $(err)`)
 }
 
 formEl.addEventListener('submit', function(e) {
@@ -25,6 +28,6 @@ formEl.addEventListener('submit', function(e) {
     const type = e.target.type.value
     const reps = parseFloat(e.target.reps.value)
     const time = parseFloat(e.target.time.value)
-    startWorkout (type, reps, time, updateDOM)
+    startWorkout (type, reps, time, updateDOM).then().catch(onError)
     formEl.reset()
 })
