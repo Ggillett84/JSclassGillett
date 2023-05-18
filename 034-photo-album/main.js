@@ -1,14 +1,27 @@
-fetch('https://jsonplaceholder.typicode.com/photos', {
-  method: 'PUT',
-  body: JSON.stringify({
-    id: 1,
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+async function renderPhotos (photos){
+    photos.forEach(img => {
+        const imgEl = document.createElement('img')
+        imgEl.setAttribute('src',img.thumbnailUrl)
+        document.getElementById('output').appendChild(imgEl)
+    });
+}
+
+
+async function getPhotos(){
+    try{
+        const data = await fetch ('https://jsonplaceholder.typicode.com/photos')
+        return await data.json ()
+       
+    }catch(error){
+        console.log (`ERROR${error}`)
+    }
+
+    
+}
+
+async function start(){
+    const photos = await getPhotos()
+    await renderPhotos (photos)
+}
+
+start()
