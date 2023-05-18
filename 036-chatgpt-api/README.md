@@ -1,0 +1,1 @@
+I moved ahead and got lost I will try to finish this for now and go back to where I was. sorry
