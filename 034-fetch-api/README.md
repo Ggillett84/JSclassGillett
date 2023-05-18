@@ -1,0 +1,2 @@
+I do always use the DEV tools because as I am coding with you I do not always hit the right buttons and they point me in the right direction. not all the time, sometimes I keep going over it and i dont see that i spelled something without an "s" or i forgot to take out a number.....ugh. but I do use it all of the time to make sure I have working code. 
+sorry about the file being numbered 034... you put the file in the photo assignment as 034 too..
