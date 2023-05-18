@@ -28,6 +28,7 @@ formEl.addEventListener('submit', function(e) {
     const type = e.target.type.value
     const reps = parseFloat(e.target.reps.value)
     const time = parseFloat(e.target.time.value)
-    startWorkout (type, reps, time, updateDOM).then().catch(onError)
+    startWorkout (type, reps, time, updateDOM)
+    .then().catch(onError)
     formEl.reset()
 })

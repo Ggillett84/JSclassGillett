@@ -40,15 +40,15 @@
 
 function fetchData(){
     return new Promise (function (resolve, reject){
-        fetch ('https://api.weather.gov/gridpoints/OKX/35,35/forcast')
+        fetch ('https://api.weather.gov/gridpoints/HNX/65,113/forecast')
         .then(response => response.json ())
-        .then (data => resolve(data.properties.periods[1].shortForecast))
+        .then (data => resolve(data.properties.periods[0].temperature))
         
     })
 }
 
 function displayData(weather){
-    console.log(weather)
+    console.log(`Tonights temp is ${weather} degrees`)
 }
 function onError(err){
     console.log(`ERROR ${err}`)
